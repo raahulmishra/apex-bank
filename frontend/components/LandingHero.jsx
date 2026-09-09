@@ -8,7 +8,7 @@ export default function LandingHero() {
       <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#ead79a]/30 blur-3xl" />
       <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[#d4af37]/10 blur-3xl" />
 
-      <div className="relative mx-auto grid min-h-[560px] max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:min-h-[650px] lg:grid-cols-2 lg:px-8">
+      <div className="relative mx-auto grid min-h-140 max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:min-h-162.5 lg:grid-cols-2 lg:px-8">
         {/* Left Content */}
         <div>
           <div className="mb-6 inline-flex rounded-full border border-[#d8c27b] bg-[#fffaf0] px-4 py-2 text-sm font-medium text-[#8b7632]">
@@ -70,8 +70,8 @@ export default function LandingHero() {
 
           <div className="relative rounded-[32px] border border-[#e2d29e] bg-white/80 p-3 shadow-2xl backdrop-blur sm:p-5">
             {/* Main bank card */}
-            <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-[#d4af37] via-[#b99525] to-[#8e7017] p-5 text-white shadow-xl sm:p-7">
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-[30px] border-white/10" />
+            <div className="relative overflow-hidden rounded-[24px] bg-linear-to-br from-[#d4af37] via-[#b99525] to-[#8e7017] p-5 text-white shadow-xl sm:p-7">
+              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-30 border-white/10" />
 
               <div className="flex items-start justify-between">
                 <div>
