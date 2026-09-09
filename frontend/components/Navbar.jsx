@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[#e8dfc7] bg-[#fffdf7]/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        
+    <header className="glass-surface sticky top-0 z-50 rounded-none border-x-0 border-t-0">
+      <div className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#d4af37] text-xl font-bold text-white">
@@ -18,9 +18,7 @@ export default function Navbar() {
             <h1 className="text-lg font-bold tracking-wide text-[#24221d]">
               APEX
             </h1>
-            <p className="text-xs tracking-[0.25em] text-[#8b7632]">
-              TRUST
-            </p>
+            <p className="text-xs tracking-[0.25em] text-[#8b7632]">TRUST</p>
           </div>
         </Link>
 
@@ -56,18 +54,20 @@ export default function Navbar() {
         </nav>
 
         {/* Auth buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <ThemeToggle inline />
+
           <Link href="/login">
             <Button
               variant="outline"
-              className="rounded-full border-[#d4af37] bg-transparent px-5 text-[#403c32] hover:bg-[#f7efd5]"
+              className="rounded-full border-[#d4af37] bg-transparent px-3 text-xs text-[#403c32] hover:bg-[#f7efd5] sm:px-5 sm:text-sm"
             >
               Login
             </Button>
           </Link>
 
           <Link href="/signup">
-            <Button className="rounded-full bg-[#d4af37] px-5 text-white hover:bg-[#b99525]">
+            <Button className="rounded-full bg-[#d4af37] px-3 text-xs text-white hover:bg-[#b99525] sm:px-5 sm:text-sm">
               Create an Account
             </Button>
           </Link>

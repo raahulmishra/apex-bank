@@ -1,5 +1,29 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 
+async function readResponse(response) {
+  const text = await response.text();
+
+  if (!text) return {};
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { message: text };
+  }
+}
+
+function redirectIfUnauthorized(response) {
+  if (response.status !== 401 || typeof window === "undefined") return;
+
+  localStorage.removeItem("token");
+  localStorage.removeItem("accountNumber");
+  localStorage.removeItem("accountHolder");
+
+  if (window.location.pathname !== "/login") {
+    window.location.assign("/login");
+  }
+}
+
 export async function createAccount(accountData) {
   const response = await fetch(`${API_URL}/api/accounts`, {
     method: "POST",
@@ -9,7 +33,7 @@ export async function createAccount(accountData) {
     body: JSON.stringify(accountData),
   });
 
-  const data = await response.json();
+  const data = await readResponse(response);
 
   if (!response.ok) {
     throw new Error(data.message || "Failed to create account");
@@ -30,17 +54,7 @@ export async function login(accountNumber, password) {
     }),
   });
 
-  const text = await response.text();
-
-  let data = {};
-
-  if (text) {
-    try {
-      data = JSON.parse(text);
-    } catch {
-      data = {};
-    }
-  }
+  const data = await readResponse(response);
 
   if (!response.ok) {
     throw new Error(data.message || "Invalid account number or password");
@@ -60,7 +74,9 @@ export async function getBalance(accountNumber) {
     },
   );
 
-  const data = await response.json();
+  redirectIfUnauthorized(response);
+
+  const data = await readResponse(response);
 
   if (!response.ok) {
     throw new Error(data.message || "Failed to fetch balance");
@@ -81,7 +97,9 @@ export async function getTransactions(accountNumber) {
     },
   );
 
-  const data = await response.json();
+  redirectIfUnauthorized(response);
+
+  const data = await readResponse(response);
 
   if (!response.ok) {
     throw new Error(data.message || "Failed to fetch transactions");
@@ -102,7 +120,9 @@ export async function transferMoney(transferData) {
     body: JSON.stringify(transferData),
   });
 
-  const data = await response.json();
+  redirectIfUnauthorized(response);
+
+  const data = await readResponse(response);
 
   if (!response.ok) {
     throw new Error(data.message || "Transfer failed");
@@ -126,13 +146,9 @@ export async function changePassword(currentPassword, newPassword) {
     }),
   });
 
-  const text = await response.text();
+  redirectIfUnauthorized(response);
 
-  let data = {};
-
-  if (text) {
-    data = JSON.parse(text);
-  }
+  const data = await readResponse(response);
 
   if (!response.ok) {
     throw new Error(

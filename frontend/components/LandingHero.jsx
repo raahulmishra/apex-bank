@@ -4,31 +4,27 @@ import { Button } from "@/components/ui/button";
 export default function LandingHero() {
   return (
     <section className="relative overflow-hidden bg-[#faf5e6]">
-      
       {/* Decorative circles */}
       <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#ead79a]/30 blur-3xl" />
       <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[#d4af37]/10 blur-3xl" />
 
-      <div className="relative mx-auto grid min-h-[650px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8">
-        
+      <div className="relative mx-auto grid min-h-[560px] max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:min-h-[650px] lg:grid-cols-2 lg:px-8">
         {/* Left Content */}
         <div>
           <div className="mb-6 inline-flex rounded-full border border-[#d8c27b] bg-[#fffaf0] px-4 py-2 text-sm font-medium text-[#8b7632]">
             Trusted Banking. Better Future.
           </div>
 
-          <h1 className="max-w-2xl text-5xl font-bold leading-[1.08] tracking-tight text-[#29261f] md:text-6xl">
+          <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-[#29261f] sm:text-5xl md:text-6xl">
             Your Future,
             <br />
-            <span className="text-[#b08d24]">
-              Built on Trust.
-            </span>
+            <span className="text-[#b08d24]">Built on Trust.</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-[#625d50]">
-            Simple, secure and modern banking designed around you.
-            Manage your money, transfer funds and keep track of your
-            finances with confidence.
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#625d50] sm:text-lg sm:leading-8">
+            Simple, secure and modern banking designed around you. Manage your
+            money, transfer funds and keep track of your finances with
+            confidence.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -69,15 +65,12 @@ export default function LandingHero() {
 
         {/* Right Banking Card */}
         <div className="relative mx-auto w-full max-w-lg">
-          
           {/* Glow */}
           <div className="absolute inset-0 rounded-[40px] bg-[#d4af37]/20 blur-3xl" />
 
-          <div className="relative rounded-[32px] border border-[#e2d29e] bg-white/80 p-5 shadow-2xl backdrop-blur">
-            
+          <div className="relative rounded-[32px] border border-[#e2d29e] bg-white/80 p-3 shadow-2xl backdrop-blur sm:p-5">
             {/* Main bank card */}
-            <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-[#d4af37] via-[#b99525] to-[#8e7017] p-7 text-white shadow-xl">
-              
+            <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-[#d4af37] via-[#b99525] to-[#8e7017] p-5 text-white shadow-xl sm:p-7">
               <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-[30px] border-white/10" />
 
               <div className="flex items-start justify-between">
@@ -95,7 +88,7 @@ export default function LandingHero() {
 
               <div className="mt-14">
                 <p className="text-sm text-white/70">Available Balance</p>
-                <p className="mt-1 text-4xl font-bold">
+                <p className="mt-1 text-3xl font-bold sm:text-4xl">
                   ₹25,450.00
                 </p>
               </div>
@@ -103,9 +96,7 @@ export default function LandingHero() {
               <div className="mt-10 flex justify-between text-sm">
                 <div>
                   <p className="text-xs text-white/60">ACCOUNT</p>
-                  <p className="mt-1 tracking-widest">
-                    •••• 4829
-                  </p>
+                  <p className="mt-1 tracking-widest">•••• 4829</p>
                 </div>
 
                 <div>
@@ -117,33 +108,22 @@ export default function LandingHero() {
 
             {/* Bottom stats */}
             <div className="grid grid-cols-2 gap-4 pt-5">
-              <div className="rounded-2xl bg-[#faf5e6] p-5">
-                <p className="text-sm text-[#77705f]">
-                  This Month
-                </p>
+              <div className="rounded-2xl bg-[#faf5e6] p-4 sm:p-5">
+                <p className="text-sm text-[#77705f]">This Month</p>
                 <p className="mt-2 text-xl font-bold text-[#29261f]">
                   + ₹8,240
                 </p>
-                <p className="mt-1 text-xs text-green-700">
-                  Income
-                </p>
+                <p className="mt-1 text-xs text-green-700">Income</p>
               </div>
 
-              <div className="rounded-2xl bg-[#faf5e6] p-5">
-                <p className="text-sm text-[#77705f]">
-                  Spending
-                </p>
-                <p className="mt-2 text-xl font-bold text-[#29261f]">
-                  ₹4,820
-                </p>
-                <p className="mt-1 text-xs text-[#9b6c25]">
-                  This month
-                </p>
+              <div className="rounded-2xl bg-[#faf5e6] p-4 sm:p-5">
+                <p className="text-sm text-[#77705f]">Spending</p>
+                <p className="mt-2 text-xl font-bold text-[#29261f]">₹4,820</p>
+                <p className="mt-1 text-xs text-[#9b6c25]">This month</p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
